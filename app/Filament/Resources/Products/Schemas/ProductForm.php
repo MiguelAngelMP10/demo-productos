@@ -18,9 +18,11 @@ class ProductForm
                     ->default(auth()->id())
                     ->required(),
                 TextInput::make('name')
+                    ->string()
                     ->required(),
                 Textarea::make('description')
                     ->rows(3)
+                    ->maxLength(100)
                     ->required(),
                 TextInput::make('quantity')
                     ->required()
