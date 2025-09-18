@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Products\Schemas;
 
+use App\Models\Warehouse;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -33,6 +34,14 @@ class ProductForm
                     ->numeric()
                     ->default(1)
                     ->prefix('$'),
+
+                Select::make('warehouses')
+                    ->multiple()
+                    ->preload()
+                    ->relationship(titleAttribute: 'name')
+                    ->required()
+
+
             ]);
     }
 }
